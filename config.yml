@@ -1,14 +1,15 @@
 projects:
-  qr-rf:
-    repo: arkhivar/qr-rf
-    chat_id: -1003947505610
-    thread_id: 23
-    trigger: webhook
 
   tg-repo-watcher:
     repo: arkhivar/tg-repo-watcher
     chat_id: -1003947505610
     thread_id: 10
+    trigger: webhook
+    
+  qr-rf:
+    repo: arkhivar/qr-rf
+    chat_id: -1003947505610
+    thread_id: 23
     trigger: webhook
 
   se-download:
