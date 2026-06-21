@@ -1,35 +1,35 @@
 projects:
-  my-project-1:
+  qr-rf:
     repo: arkhivar/qr-rf
     chat_id: -1003947505610
     thread_id: 23
     trigger: webhook
 
-  my-project-2:
+  tg-repo-watcher:
     repo: arkhivar/tg-repo-watcher
     chat_id: -1003947505610
     thread_id: 10
     trigger: webhook
 
-  my-project-1:
+  se-download:
     repo: arkhivar/se-download
     chat_id: -1003947505610
     thread_id: 19
     trigger: webhook
 
-  my-project-2:
+  tax-deduction:
     repo: arkhivar/tax-deduction
     chat_id: -1003947505610
     thread_id: 17
     trigger: webhook
     
-  my-project-1:
+  recipes:
     repo: arkhivar/recipes
     chat_id: -1003947505610
     thread_id: 15
     trigger: webhook
 
-  my-project-2:
+  outline-plasmoid:
     repo: arkhivar/outline-plasmoid
     chat_id: -1003947505610
     thread_id: 12
@@ -41,13 +41,13 @@ projects:
     thread_id: 8
     trigger: webhook
 
-  my-project-2:
+  premises-web:
     repo: arkhivar/premises-web
     chat_id: -1003947505610
     thread_id: 2
     trigger: webhook
 
-  external-cool-project:
+  goose:
     repo: aaif-goose/goose
     chat_id: -1003947505610
     thread_id: 43
