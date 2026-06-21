@@ -47,9 +47,3 @@ projects:
     chat_id: -1003947505610
     thread_id: 2
     trigger: webhook
-
-  goose:
-    repo: aaif-goose/goose
-    chat_id: -1003947505610
-    thread_id: 43
-    trigger: cron
