@@ -1,0 +1,54 @@
+projects:
+  my-project-1:
+    repo: arkhivar/qr-rf
+    chat_id: -1003947505610
+    thread_id: 23
+    trigger: webhook
+
+  my-project-2:
+    repo: arkhivar/tg-repo-watcher
+    chat_id: -1003947505610
+    thread_id: 10
+    trigger: webhook
+
+  my-project-1:
+    repo: arkhivar/se-download
+    chat_id: -1003947505610
+    thread_id: 19
+    trigger: webhook
+
+  my-project-2:
+    repo: arkhivar/tax-deduction
+    chat_id: -1003947505610
+    thread_id: 17
+    trigger: webhook
+    
+  my-project-1:
+    repo: arkhivar/recipes
+    chat_id: -1003947505610
+    thread_id: 15
+    trigger: webhook
+
+  my-project-2:
+    repo: arkhivar/tg-repo-watcher
+    chat_id: -1003947505610
+    thread_id: 12346
+    trigger: webhook
+
+  my-project-1:
+    repo: arkhivar/se-download
+    chat_id: -1003947505610
+    thread_id: 12345
+    trigger: webhook
+
+  my-project-2:
+    repo: arkhivar/tax-deduction
+    chat_id: -1003947505610
+    thread_id: 12346
+    trigger: webhook
+
+  external-cool-project:
+    repo: some-org/cool-project
+    chat_id: -1001234567890
+    thread_id: 12347
+    trigger: cron
