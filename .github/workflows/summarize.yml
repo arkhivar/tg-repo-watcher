@@ -1,3 +1,6 @@
+# File: .github/workflows/summarize.yml
+name: Report to Telegram
+
 on:
   push:
   pull_request:
