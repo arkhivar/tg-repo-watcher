@@ -1,0 +1,8 @@
+on:
+  push:
+  pull_request:
+
+jobs:
+  report:
+    uses: arkhivar/tg-repo-watcher/.github/workflows/summarize.yml@main
+    secrets: inherit
