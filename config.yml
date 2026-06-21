@@ -35,7 +35,7 @@ projects:
     thread_id: 12
     trigger: webhook
 
-  my-project-1:
+  vpn-zona:
     repo: arkhivar/vpn-zona
     chat_id: -1003947505610
     thread_id: 8
