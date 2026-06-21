@@ -30,25 +30,25 @@ projects:
     trigger: webhook
 
   my-project-2:
-    repo: arkhivar/tg-repo-watcher
+    repo: arkhivar/outline-plasmoid
     chat_id: -1003947505610
-    thread_id: 12346
+    thread_id: 12
     trigger: webhook
 
   my-project-1:
-    repo: arkhivar/se-download
+    repo: arkhivar/vpn-zona
     chat_id: -1003947505610
-    thread_id: 12345
+    thread_id: 8
     trigger: webhook
 
   my-project-2:
-    repo: arkhivar/tax-deduction
+    repo: arkhivar/premises-web
     chat_id: -1003947505610
-    thread_id: 12346
+    thread_id: 2
     trigger: webhook
 
   external-cool-project:
-    repo: some-org/cool-project
-    chat_id: -1001234567890
-    thread_id: 12347
+    repo: aaif-goose/goose
+    chat_id: -1003947505610
+    thread_id: 43
     trigger: cron
