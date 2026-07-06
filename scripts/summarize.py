@@ -301,7 +301,10 @@ def main() -> int:
 
     chat_id = int(project["chat_id"])
     thread_id = project.get("thread_id")
-    thread_id = int(thread_id) if thread_id else None
+    if thread_id in (None, "", 0):
+        print(f"[skip] {repo} has no thread_id set yet in config.yml")
+        return 0
+    thread_id = int(thread_id)
 
     ctx: dict = {}
     if event == "push":

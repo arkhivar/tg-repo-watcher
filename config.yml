@@ -1,11 +1,21 @@
+# tg-repo-watcher config
+#
+# chat_id  = the Telegram supergroup (same for all)
+# thread_id = the topic ID inside that group (fill in per repo)
+# trigger  = "webhook" (dispatched from repo itself) or "cron" (external, polled)
+#
+# All existing thread_ids preserved. TODO placeholders for the rest.
+
 projects:
+
+  # ── existing (thread IDs already set) ────────────────────────────
 
   tg-repo-watcher:
     repo: arkhivar/tg-repo-watcher
     chat_id: -1003947505610
     thread_id: 10
     trigger: webhook
-    
+
   qr-rf:
     repo: arkhivar/qr-rf
     chat_id: -1003947505610
@@ -23,7 +33,7 @@ projects:
     chat_id: -1003947505610
     thread_id: 17
     trigger: webhook
-    
+
   recipes:
     repo: arkhivar/recipes
     chat_id: -1003947505610
@@ -46,4 +56,78 @@ projects:
     repo: arkhivar/premises-web
     chat_id: -1003947505610
     thread_id: 2
+    trigger: webhook
+
+  # ── new repos (fill in thread_id when ready) ─────────────────────
+
+  chatMemorials:
+    repo: arkhivar/chatMemorials
+    chat_id: -1003947505610
+    thread_id: null  # TODO
+    trigger: webhook
+
+  cmd-master-forge:
+    repo: arkhivar/cmd-master-forge
+    chat_id: -1003947505610
+    thread_id: null  # TODO
+    trigger: webhook
+
+  kvrt:
+    repo: arkhivar/kvrt
+    chat_id: -1003947505610
+    thread_id: null  # TODO
+    trigger: webhook
+
+  mirror2sell:
+    repo: arkhivar/mirror2sell
+    chat_id: -1003947505610
+    thread_id: null  # TODO
+    trigger: webhook
+
+  se:
+    repo: arkhivar/se
+    chat_id: -1003947505610
+    thread_id: null  # TODO
+    trigger: webhook
+
+  social_9bot:
+    repo: arkhivar/social_9bot
+    chat_id: -1003947505610
+    thread_id: null  # TODO
+    trigger: webhook
+
+  tg-Details-Bot:
+    repo: arkhivar/tg-Details-Bot
+    chat_id: -1003947505610
+    thread_id: null  # TODO
+    trigger: webhook
+
+  tg-tt-ub:
+    repo: arkhivar/tg-tt-ub
+    chat_id: -1003947505610
+    thread_id: null  # TODO
+    trigger: webhook
+
+  tgCalendarSync:
+    repo: arkhivar/tgCalendarSync
+    chat_id: -1003947505610
+    thread_id: null  # TODO
+    trigger: webhook
+
+  tg_DetailsBot:
+    repo: arkhivar/tg_DetailsBot
+    chat_id: -1003947505610
+    thread_id: null  # TODO
+    trigger: webhook
+
+  tg_subs_monitor:
+    repo: arkhivar/tg_subs_monitor
+    chat_id: -1003947505610
+    thread_id: null  # TODO
+    trigger: webhook
+
+  vk_birthday_bot:
+    repo: arkhivar/vk_birthday_bot
+    chat_id: -1003947505610
+    thread_id: null  # TODO
     trigger: webhook
