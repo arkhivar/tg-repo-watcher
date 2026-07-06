@@ -1,0 +1,48 @@
+name: Notify Telegram
+
+on:
+  push:
+  pull_request:
+    types: [opened, reopened, closed, ready_for_review]
+  release:
+    types: [published]
+  issues:
+    types: [opened, closed, reopened]
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send dispatch to tg-repo-watcher
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.WATCHER_DISPATCH_PAT }}
+          script: |
+            const event = context.eventName;
+            const payload = {
+              repo: `${context.repo.owner}/${context.repo.repo}`,
+              event,
+              ref: context.ref,
+              sha: context.sha,
+              actor: context.actor,
+            };
+            if (event === 'push') {
+              payload.before = context.payload.before;
+              payload.after  = context.payload.after;
+            } else if (event === 'pull_request') {
+              payload.action    = context.payload.action;
+              payload.pr_number = context.payload.pull_request.number;
+              payload.merged    = context.payload.pull_request.merged;
+            } else if (event === 'release') {
+              payload.action     = context.payload.action;
+              payload.release_id = context.payload.release.id;
+            } else if (event === 'issues') {
+              payload.action       = context.payload.action;
+              payload.issue_number = context.payload.issue.number;
+            }
+            await github.rest.repos.createDispatchEvent({
+              owner: 'arkhivar',
+              repo:  'tg-repo-watcher',
+              event_type: 'repo-update',
+              client_payload: payload,
+            });
