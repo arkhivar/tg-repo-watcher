@@ -1,0 +1,31 @@
+name: Summarize and Notify
+
+on:
+  repository_dispatch:
+    types: [repo-update]
+
+jobs:
+  summarize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout watcher repo (config + script)
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: pip install --quiet requests pyyaml
+
+      - name: Run summarizer
+        env:
+          # All secrets live only here, in tg-repo-watcher.
+          # WATCHER_DISPATCH_PAT is reused as GH_PAT — same `repo` scope
+          # is needed either way, so one PAT covers both purposes.
+          GH_PAT: ${{ secrets.WATCHER_DISPATCH_PAT }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DISPATCH_PAYLOAD: ${{ toJson(github.event.client_payload) }}
+        run: python scripts/summarize.py
