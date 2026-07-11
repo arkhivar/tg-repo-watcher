@@ -39,6 +39,34 @@ MAX_DIFF_CHARS = 6000
 
 
 # ---------- helpers ----------
+def resolve_destinations(project: dict) -> list[tuple[int, int | None]]:
+    """Accept both legacy (chat_id + thread_id) and new (destinations: [...]) schemas.
+
+    Returns a list of (chat_id, thread_id_or_None) tuples with all invalid
+    entries filtered out.
+    """
+    out: list[tuple[int, int | None]] = []
+
+    def _add(chat_id, thread_id):
+        if chat_id in (None, "", 0):
+            return
+        if thread_id in (None, "", 0):
+            return  # keep old behaviour: skip until a real thread is set
+        try:
+            out.append((int(chat_id), int(thread_id)))
+        except (TypeError, ValueError):
+            print(f"[warn] bad destination {chat_id=} {thread_id=} — skipped", file=sys.stderr)
+
+    dests = project.get("destinations")
+    if isinstance(dests, list) and dests:
+        for d in dests:
+            if isinstance(d, dict):
+                _add(d.get("chat_id"), d.get("thread_id"))
+    else:
+        _add(project.get("chat_id"), project.get("thread_id"))
+    return out
+
+
 def load_project_cfg(repo: str) -> dict | None:
     with open(CONFIG_PATH) as f:
         cfg = yaml.safe_load(f) or {}
@@ -299,12 +327,10 @@ def main() -> int:
         print(f"[skip] {repo} not in config.yml")
         return 0
 
-    chat_id = int(project["chat_id"])
-    thread_id = project.get("thread_id")
-    if thread_id in (None, "", 0):
-        print(f"[skip] {repo} has no thread_id set yet in config.yml")
+    destinations = resolve_destinations(project)
+    if not destinations:
+        print(f"[skip] {repo} has no valid destinations set yet in config.yml")
         return 0
-    thread_id = int(thread_id)
 
     ctx: dict = {}
     if event == "push":
@@ -351,7 +377,8 @@ def main() -> int:
     print(f"[llm] {summary}")
 
     msg = build_message(repo, event, payload, ctx, summary)
-    send_telegram(tg_token, chat_id, thread_id, msg)
+    for chat_id, thread_id in destinations:
+        send_telegram(tg_token, chat_id, thread_id, msg)
     return 0
 
 

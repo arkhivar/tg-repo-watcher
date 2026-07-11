@@ -1,10 +1,17 @@
 # tg-repo-watcher config
 #
-# chat_id  = the Telegram supergroup (same for all)
-# thread_id = the topic ID inside that group (fill in per repo)
-# trigger  = "webhook" (dispatched from repo itself) or "cron" (external, polled)
+# A project has ONE of:
+#   (a) legacy single destination:
+#         chat_id: -100...
+#         thread_id: 12
+#   (b) multiple destinations:
+#         destinations:
+#           - chat_id: -100...
+#             thread_id: 12
+#           - chat_id: -100...
+#             thread_id: 39
 #
-# All existing thread_ids preserved. TODO placeholders for the rest.
+# trigger = "webhook" (repo dispatches) or "cron" (external, polled)
 
 projects:
 
@@ -42,9 +49,12 @@ projects:
 
   outline-plasmoid:
     repo: arkhivar/outline-plasmoid
-    chat_id: -1003947505610
-    thread_id: 12
     trigger: webhook
+    destinations:
+      - chat_id: -1003947505610
+        thread_id: 12
+      - chat_id: -1002859087635
+        thread_id: 39
 
   vpn-zona:
     repo: arkhivar/vpn-zona
