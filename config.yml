@@ -183,3 +183,16 @@ projects:
     trigger: cron
     chat_id: -1002627184483
     channel: true
+
+
+  ext-ghost:
+    repo: TryGhost/Ghost
+    trigger: cron
+    chat_id: -1002627184483
+    channel: true
+
+  ext-dify:
+    repo: langgenius/dify
+    trigger: cron
+    chat_id: -1002627184483
+    channel: true
