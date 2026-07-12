@@ -141,3 +141,45 @@ projects:
     chat_id: -1003947505610
     thread_id: null  # TODO
     trigger: webhook
+
+  # ── external public repos (release-only, polled daily) ───────────
+  # These aren't owned by us, so we can't add notify.yml to them.
+  # scripts/poll_releases.py checks them on a cron and posts new
+  # releases to the channel. `channel: true` allows thread_id to be
+  # omitted (channels have no topics).
+
+  ext-opencode:
+    repo: anomalyco/opencode
+    trigger: cron
+    chat_id: -1002627184483
+    channel: true
+
+  ext-bolt-diy:
+    repo: stackblitz-labs/bolt.diy
+    trigger: cron
+    chat_id: -1002627184483
+    channel: true
+
+  ext-agent-zero:
+    repo: agent0ai/agent-zero
+    trigger: cron
+    chat_id: -1002627184483
+    channel: true
+
+  ext-aionui:
+    repo: iOfficeAI/AionUi
+    trigger: cron
+    chat_id: -1002627184483
+    channel: true
+
+  ext-kilocode:
+    repo: Kilo-Org/kilocode
+    trigger: cron
+    chat_id: -1002627184483
+    channel: true
+
+  ext-goose:
+    repo: aaif-goose/goose
+    trigger: cron
+    chat_id: -1002627184483
+    channel: true

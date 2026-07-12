@@ -47,13 +47,18 @@ def resolve_destinations(project: dict) -> list[tuple[int, int | None]]:
     """
     out: list[tuple[int, int | None]] = []
 
-    def _add(chat_id, thread_id):
+    def _add(chat_id, thread_id, is_channel=False):
         if chat_id in (None, "", 0):
             return
-        if thread_id in (None, "", 0):
-            return  # keep old behaviour: skip until a real thread is set
+        # Channels don't have topics — allow thread_id to be missing.
+        # Groups still require an explicit thread_id (guards against
+        # accidentally posting to the general topic).
+        if not is_channel and thread_id in (None, "", 0):
+            return
         try:
-            out.append((int(chat_id), int(thread_id)))
+            cid = int(chat_id)
+            tid = int(thread_id) if thread_id not in (None, "", 0) else None
+            out.append((cid, tid))
         except (TypeError, ValueError):
             print(f"[warn] bad destination {chat_id=} {thread_id=} — skipped", file=sys.stderr)
 
@@ -61,9 +66,13 @@ def resolve_destinations(project: dict) -> list[tuple[int, int | None]]:
     if isinstance(dests, list) and dests:
         for d in dests:
             if isinstance(d, dict):
-                _add(d.get("chat_id"), d.get("thread_id"))
+                _add(d.get("chat_id"), d.get("thread_id"), bool(d.get("channel")))
     else:
-        _add(project.get("chat_id"), project.get("thread_id"))
+        _add(
+            project.get("chat_id"),
+            project.get("thread_id"),
+            bool(project.get("channel")),
+        )
     return out
 
 

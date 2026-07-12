@@ -1,0 +1,48 @@
+name: Poll External Releases
+
+on:
+  schedule:
+    # Daily at 09:00 UTC (= 19:00 in Vladivostok)
+    - cron: "0 9 * * *"
+  workflow_dispatch: {}  # allow manual runs from the Actions tab
+
+# Prevent overlapping runs (harmless but tidy)
+concurrency:
+  group: poll-releases
+  cancel-in-progress: false
+
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # needed to commit state/last_seen.json
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: pip install --quiet requests pyyaml
+
+      - name: Poll releases
+        env:
+          GH_PAT: ${{ secrets.WATCHER_DISPATCH_PAT }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: python scripts/poll_releases.py
+
+      - name: Commit state if changed
+        run: |
+          if [[ -n "$(git status --porcelain state/)" ]]; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add state/
+            git commit -m "chore: update poller state"
+            git push
+          else
+            echo "state unchanged"
+          fi
