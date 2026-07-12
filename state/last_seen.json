@@ -1,0 +1,20 @@
+{
+  "Kilo-Org/kilocode": {
+    "last_tag": "jetbrains/v7.0.4"
+  },
+  "aaif-goose/goose": {
+    "last_tag": "v1.41.0"
+  },
+  "agent0ai/agent-zero": {
+    "last_tag": "v2.4"
+  },
+  "anomalyco/opencode": {
+    "last_tag": "v1.17.18"
+  },
+  "iOfficeAI/AionUi": {
+    "last_tag": "v2.1.33"
+  },
+  "stackblitz-labs/bolt.diy": {
+    "last_tag": "v1.0.0"
+  }
+}
