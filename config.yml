@@ -58,9 +58,12 @@ projects:
 
   vpn-zona:
     repo: arkhivar/vpn-zona
-    chat_id: -1003947505610
-    thread_id: 8
     trigger: webhook
+    destinations:
+      - chat_id: -1003947505610
+        thread_id: 8
+      - chat_id: -1002859087635
+        thread_id: 39
 
   premises-web:
     repo: arkhivar/premises-web
