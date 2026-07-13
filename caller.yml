@@ -2,11 +2,12 @@
 #   .github/workflows/notify.yml
 #
 # It fires a repository_dispatch event at arkhivar/tg-repo-watcher, which
-# owns all the secrets. This repo needs zero secrets of its own.
+# owns all the secrets. Each watched repo only needs ONE secret of its
+# own: WATCHER_DISPATCH_PAT (a Classic PAT with `repo` scope).
 #
-# The only prerequisite is that tg-repo-watcher has a GH_PAT secret with
-# `repo` scope (the same PAT you already stored), because the watcher uses
-# that PAT — via the notify job below — to receive the dispatch.
+# ⚠️  FORKING THIS PROJECT?
+# Edit the `owner:` and `repo:` values in the script block below to point
+# at YOUR fork — otherwise dispatches go to arkhivar's watcher, not yours.
 
 name: Notify Telegram
 
