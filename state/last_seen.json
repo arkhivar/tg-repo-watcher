@@ -2,6 +2,9 @@
   "Kilo-Org/kilocode": {
     "last_tag": "jetbrains/v7.0.4"
   },
+  "TryGhost/Ghost": {
+    "last_tag": "v6.52.1"
+  },
   "aaif-goose/goose": {
     "last_tag": "v1.41.0"
   },
@@ -13,6 +16,9 @@
   },
   "iOfficeAI/AionUi": {
     "last_tag": "v2.1.33"
+  },
+  "langgenius/dify": {
+    "last_tag": "1.15.0"
   },
   "stackblitz-labs/bolt.diy": {
     "last_tag": "v1.0.0"
