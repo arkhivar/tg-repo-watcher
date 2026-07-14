@@ -1,21 +1,21 @@
 {
   "Kilo-Org/kilocode": {
-    "last_tag": "jetbrains/v7.0.4"
+    "last_tag": "v7.4.7"
   },
   "TryGhost/Ghost": {
     "last_tag": "v6.52.1"
   },
   "aaif-goose/goose": {
-    "last_tag": "v1.41.0"
+    "last_tag": "v1.43.0"
   },
   "agent0ai/agent-zero": {
     "last_tag": "v2.4"
   },
   "anomalyco/opencode": {
-    "last_tag": "v1.17.18"
+    "last_tag": "v1.17.20"
   },
   "iOfficeAI/AionUi": {
-    "last_tag": "v2.1.33"
+    "last_tag": "v2.1.34"
   },
   "langgenius/dify": {
     "last_tag": "1.15.0"
