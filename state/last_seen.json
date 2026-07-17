@@ -1,6 +1,6 @@
 {
   "Kilo-Org/kilocode": {
-    "last_tag": "v7.4.9"
+    "last_tag": "v7.4.11"
   },
   "TryGhost/Ghost": {
     "last_tag": "v6.52.1"
@@ -12,7 +12,7 @@
     "last_tag": "v2.4"
   },
   "anomalyco/opencode": {
-    "last_tag": "v1.18.2"
+    "last_tag": "v1.18.3"
   },
   "iOfficeAI/AionUi": {
     "last_tag": "v2.1.35"
