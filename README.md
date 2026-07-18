@@ -65,6 +65,19 @@ Two delivery paths:
 | `state/last_seen.json` | Per-repo last-seen release tag (auto-committed) |
 | `caller.yml` | Template — copy to each owned repo as `.github/workflows/notify.yml` |
 
+### Which files go where
+
+| File | Watcher repo (`tg-repo-watcher`) | Each watched repo |
+|---|---|---|
+| `summarize.yml` | ✅ lives here only | ❌ never |
+| `poll.yml` | ✅ lives here only | ❌ never |
+| `notify.yml` | ✅ (so the watcher watches itself) | ✅ copied from `caller.yml` |
+
+Watched repos need **only `notify.yml`**. Adding `summarize.yml` or
+`poll.yml` to a watched repo does nothing useful (no dispatch/cron
+would target it) and `poll.yml` there would even try to run a daily
+cron from the wrong repo and fail on missing secrets.
+
 ## Secrets
 
 ### In `tg-repo-watcher` (this repo)
