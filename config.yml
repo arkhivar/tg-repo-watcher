@@ -159,12 +159,13 @@ projects:
   # scripts/poll_releases.py checks them on a cron and posts new
   # releases to the channel. `channel: true` allows thread_id to be
   # omitted (channels have no topics).
-
+    
   ext-opencode:
     repo: anomalyco/opencode
     trigger: cron
-    chat_id: -1002627184483
-    channel: true
+    destinations:
+      - chat_id: -1002297460201
+        thread_id: 11
 
   ext-bolt-diy:
     repo: stackblitz-labs/bolt.diy
