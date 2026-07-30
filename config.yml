@@ -65,6 +65,15 @@ projects:
       - chat_id: -1002859087635
         thread_id: 39
 
+  grist-garden:
+    repo: arkhivar/grist-sprints
+    trigger: webhook
+    destinations:
+      - chat_id: -1003947505610
+        thread_id: 62
+      - chat_id: -1001546860015
+        thread_id: noThreads
+
   premises-web:
     repo: arkhivar/premises-web
     chat_id: -1003947505610
