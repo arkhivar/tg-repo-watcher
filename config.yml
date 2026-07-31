@@ -72,7 +72,7 @@ projects:
       - chat_id: -1003947505610
         thread_id: 62
       - chat_id: -1001546860015
-        thread_id: noThreads
+        topics: false
 
   premises-web:
     repo: arkhivar/premises-web

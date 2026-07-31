@@ -1,8 +1,8 @@
 # tg-repo-watcher
 
 Sends AI-generated Telegram summaries of GitHub activity (pushes, PRs,
-releases, issues) to per-repo topics in a Telegram supergroup, or to a
-Telegram channel.
+releases, issues) to per-repo topics in a Telegram supergroup, a regular
+group without topics, or a Telegram channel.
 
 Two delivery paths:
 
@@ -148,6 +148,8 @@ my-project:
       thread_id: 39
     - chat_id: -1002627184483
       channel: true
+    - chat_id: -1001546860015
+      topics: false
 ```
 
 If any single Telegram send fails, the others still get delivered.
@@ -157,6 +159,9 @@ If any single Telegram send fails, the others still get delivered.
 - **Groups with topics** — supergroup with "Topics" enabled. Get
   `chat_id` and `thread_id` by forwarding a message from the topic to
   `@RawDataBot`, or by inspecting bot updates.
+- **Groups without topics** — set `topics: false` and omit `thread_id`.
+  This sends a normal group message without Telegram's
+  `message_thread_id` parameter.
 - **Channels** — need `channel: true` in config. Bot must be added
   to the channel **as an admin** with post-message permission.
 - **Groups** — bot must be a member; admin usually needed too so

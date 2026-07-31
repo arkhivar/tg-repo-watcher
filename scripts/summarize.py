@@ -47,13 +47,13 @@ def resolve_destinations(project: dict) -> list[tuple[int, int | None]]:
     """
     out: list[tuple[int, int | None]] = []
 
-    def _add(chat_id, thread_id, is_channel=False):
+    def _add(chat_id, thread_id, is_threadless=False):
         if chat_id in (None, "", 0):
             return
-        # Channels don't have topics — allow thread_id to be missing.
-        # Groups still require an explicit thread_id (guards against
-        # accidentally posting to the general topic).
-        if not is_channel and thread_id in (None, "", 0):
+        # Channels and regular groups don't have topics, so they omit the
+        # message_thread_id. Topic-enabled groups still require an explicit
+        # thread_id (guards against accidentally posting to General).
+        if not is_threadless and thread_id in (None, "", 0):
             return
         try:
             cid = int(chat_id)
@@ -66,12 +66,16 @@ def resolve_destinations(project: dict) -> list[tuple[int, int | None]]:
     if isinstance(dests, list) and dests:
         for d in dests:
             if isinstance(d, dict):
-                _add(d.get("chat_id"), d.get("thread_id"), bool(d.get("channel")))
+                _add(
+                    d.get("chat_id"),
+                    d.get("thread_id"),
+                    bool(d.get("channel")) or d.get("topics") is False,
+                )
     else:
         _add(
             project.get("chat_id"),
             project.get("thread_id"),
-            bool(project.get("channel")),
+            bool(project.get("channel")) or project.get("topics") is False,
         )
     return out
 
