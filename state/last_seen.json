@@ -1,9 +1,9 @@
 {
   "Kilo-Org/kilocode": {
-    "last_tag": "v7.4.17"
+    "last_tag": "v7.4.18"
   },
   "TryGhost/Ghost": {
-    "last_tag": "v6.54.1"
+    "last_tag": "v6.55.0"
   },
   "aaif-goose/goose": {
     "last_tag": "v1.45.0"
@@ -15,7 +15,7 @@
     "last_tag": "v1.18.10"
   },
   "iOfficeAI/AionUi": {
-    "last_tag": "v2.1.44"
+    "last_tag": "v2.1.45"
   },
   "langgenius/dify": {
     "last_tag": "1.16.1"
