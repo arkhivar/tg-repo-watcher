@@ -3,7 +3,7 @@
     "last_tag": "v7.4.20"
   },
   "TryGhost/Ghost": {
-    "last_tag": "v6.55.0"
+    "last_tag": "v6.56.0"
   },
   "aaif-goose/goose": {
     "last_tag": "v1.45.0"
@@ -12,10 +12,10 @@
     "last_tag": "v2.8"
   },
   "anomalyco/opencode": {
-    "last_tag": "v1.18.12"
+    "last_tag": "v1.18.13"
   },
   "iOfficeAI/AionUi": {
-    "last_tag": "v2.1.46"
+    "last_tag": "v2.1.47-final"
   },
   "langgenius/dify": {
     "last_tag": "1.16.1"
