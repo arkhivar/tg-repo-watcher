@@ -1,6 +1,6 @@
 {
   "Kilo-Org/kilocode": {
-    "last_tag": "jetbrains/v7.0.13"
+    "last_tag": "jetbrains/v7.0.14"
   },
   "TryGhost/Ghost": {
     "last_tag": "v6.56.0"
@@ -12,10 +12,10 @@
     "last_tag": "v2.8"
   },
   "anomalyco/opencode": {
-    "last_tag": "v1.18.14"
+    "last_tag": "v1.18.15"
   },
   "iOfficeAI/AionUi": {
-    "last_tag": "v2.1.49"
+    "last_tag": "v2.1.50"
   },
   "langgenius/dify": {
     "last_tag": "1.16.1"
